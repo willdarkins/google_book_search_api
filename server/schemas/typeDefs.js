@@ -40,6 +40,10 @@ type Book {
   title: String!
 }
 
+type Auth {
+  token: ID!
+  user: User
+}
 `;
 
 //export typeDefs
