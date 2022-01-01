@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+//importing mongoose.connection object
 const db = require('./config/connection');
 const routes = require('./routes');
 
@@ -15,7 +16,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use(routes);
-
+//listening for mongoose connection to be made on PORT
 db.once('open', () => {
   app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
 });
