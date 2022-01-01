@@ -14,6 +14,15 @@ type Mutation {
   removeBook(bookId: ID!): User
 }
 
+type Input {
+  authors:[String]
+  description: String
+  title: String!
+  bookId: String!
+  image: String
+  link: String
+}
+
 `;
 
 //export typeDefs
