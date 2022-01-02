@@ -42,3 +42,21 @@ export const SAVE_BOOK = gql`
     }
   }
 `;
+//executes removeBook mutation set up using Apollo Server
+export const REMOVE_BOOK = gql`
+  mutation removeBook($bookId: ID!) {
+    removeBook(bookId: $bookId) {
+      _id
+      username
+      email
+      savedBooks {
+        bookId
+        authors
+        image
+        description
+        title
+        link
+      }
+    }
+  }
+`;
