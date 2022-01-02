@@ -37,7 +37,11 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
+// Initialize the Apollo server
+startServer();
+
 app.use(routes);
+
 //listening for mongoose connection to be made on PORT
 db.once('open', () => {
   app.listen(PORT, () => console.log(`🌍 Now listening on localhost:${PORT}`));
