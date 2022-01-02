@@ -1,6 +1,8 @@
 //gql tagged template function
 const { gql } = require('apollo-server-express');
 
+//input type used to handle multiple parameters in saveBook Mutation
+
 //typeDefs
 const typeDefs = gql`
 type Query {
