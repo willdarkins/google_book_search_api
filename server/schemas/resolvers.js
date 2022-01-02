@@ -69,5 +69,5 @@ const resolvers = {
           },
     }
 };
-
+//exporting resolver
 module.exports = resolvers;
