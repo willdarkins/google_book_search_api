@@ -24,3 +24,21 @@ export const ADD_USER = gql`
     }
   }
 `;
+//executes saveBook mutation set up using Apollo Server
+export const SAVE_BOOK = gql`
+  mutation saveBook($bookData: BookInput!) {
+    saveBook(bookData: $bookData) {
+      _id
+      username
+      email
+      savedBooks {
+        bookId
+        authors
+        image
+        description
+        title
+        link
+      }
+    }
+  }
+`;
