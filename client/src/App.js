@@ -9,7 +9,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
 });
-
+//ApolloClient() constructor instantiates the  Client instance and creates connection to the API endpoint
 const client = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache(),
@@ -17,16 +17,18 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <Router>
-      <>
-        <Navbar />
-        <Switch>
-          <Route exact path='/' component={SearchBooks} />
-          <Route exact path='/saved' component={SavedBooks} />
-          <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
-        </Switch>
-      </>
-    </Router>
+    <ApolloProvider client={client}>
+      <Router>
+        <>
+          <Navbar />
+          <Switch>
+            <Route exact path='/' component={SearchBooks} />
+            <Route exact path='/saved' component={SavedBooks} />
+            <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
+          </Switch>
+        </>
+      </Router>
+    </ApolloProvider>
   );
 }
 
